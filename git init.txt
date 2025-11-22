@@ -1,0 +1,35 @@
+>>> git init >>>
+=================
+INITIALIZE NEW GIT REPOSITORY IN CURRENT SELECTED FOLDER. THAT FOLDER (.GIT) IS HIDDEN.
+
+--------------------------------------------------------------------
+
+>>> git add . >>>
+==================
+STAGES ALL FILES IN THE CURRENT DIRECTORY FOR THE NEXT COMMIT.
+THE DOT (.) MEANS "ADD ALL CHANGES,NEW FILES OR ANY MODIFICATION EXCEPT DELETION"
+
+
+>>> git add -A / git add --all >>>
+==================================
+ALL CHANGES NEW FILES, MODIFICATION, AND ALSO DELETION. 
+
+>>> git add app.py >>>
+======================
+ADD SPECIFIC FILE.
+
+>>> git add -u >>>
+==================
+STAGES ONLY MODIFICATION AND DELETED FILES BUT NOT NEW UNTRACKED FILES.
+ITS STAGES ONLY THOSE FILES CHANGES THAT GIT ALREADY KNOWS.
+
+
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
