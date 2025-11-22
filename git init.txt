@@ -44,7 +44,22 @@ git push -u origin main/master
 PUSH CHANGES TO GITHUB REMOTE
 
 
+------------------------------------------------------------------
 
+>>>AFTER MAKING CHANGES IN FILE >>>
+
+git add .
+
+git commit -m"message"
+
+git push -u origin master/main
+
+
+>>>> TO AUTOMATE THE UPDATE PROCEDURE >>>
+
+git add -A
+
+git commit -m "Automated commit: update all changes"
 
 
 
