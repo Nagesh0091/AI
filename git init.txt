@@ -26,7 +26,22 @@ ITS STAGES ONLY THOSE FILES CHANGES THAT GIT ALREADY KNOWS.
 
 ----------------------------------------------------------------
 
+>>> git commit -m"message" >>>
+===============================
+SAVE THE STAGED CHANGES LOCALLY WITH A DESCRIPTIVE MESSAGE:
+THIS CREATES A SNAPSHOT OF YOUR PROJECT’S CURRENT STATE.
 
+>>> gh auth login >>>
+======================
+USED TO LOGIN GITHUB CLIENT FROM TERMINAL.
+
+gh repo create NAME_OF_REPOSITORY --public/private --source=. --remote=origin --push
+======================================================================================
+USED TO CREATE NEW REPO IN GITHUB.
+
+git push -u origin main/master
+==============================
+PUSH CHANGES TO GITHUB REMOTE
 
 
 
