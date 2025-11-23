@@ -16,6 +16,7 @@ HTML_DATA = BeautifulSoup(driver.page_source, "html.parser")
 IFRAMES = HTML_DATA.find_all("iframe") 
 print(IFRAMES)
 
+# IFRAMES = driver.find_elements("tag name", "iframe")
 
 for IFRAME in IFRAMES:
     SRC = IFRAME.get("src") # link.
@@ -51,47 +52,9 @@ driver.execute_script('document.getElementById("g-recaptcha-response").style.dis
 driver.execute_script(f'document.getElementById("g-recaptcha-response").value = "{token}";')
 
 driver.find_element("id", "submit_button_id").click()
-# NOW I GOT TO KNOW THAT THAT IS PAID SERVICE.😂😂
+# NOW I GOT TO KNOW THAT THAT IS PAID SERVICE.
 # I WILL SOLVE CAPTCHA MANUALLY.
 
-while True:
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# THAT CAPTCHA APPEARS WHILE USING SEARCH BUTTON.
+# SO I WILL TRY TO BYPASS SEARCH BUTTON AND DIRECTLY GO TO IMAGE TAB URL.
 

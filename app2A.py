@@ -8,9 +8,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
-# SEARCH = PERSON SELFIE .jpg files
-URL = "https://www.google.com/search?sca_esv=c01e032babacf42f&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI766UjmxPoHIHzqoAp3yNuz3Fl-PVh4hb3ucKWH_IX4pHJi8M0lRnPFaqGQh6DpliW2CemDyaYW9_NLOX7W-LTlOq9fcYw&q=PERSON+SELFIE+.jpg+files&sa=X&ved=2ahUKEwjPxJvl1oeRAxW-yzgGHXQIGwwQtKgLegQIFhAB&biw=1536&bih=730&dpr=1.25" 
-driver.get(URL)
+# SEARCH = PERSON SELFIE WITH TONGUE .jpg files
+PHOTOS_WITH_TONGUE = "https://www.google.com/search?sca_esv=e60bbe627df6c182&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI766UjmxPoHIHzqoAp3yNuz3Fl-PVh4hb3ucKWH_IX4pHJi8M0lRnPFaqGQh6DpliW2CemDyaYW9_NLOX7W-LTlOq9fcYw&q=PERSON+SELFIE+WITH+TONGUE+.jpg+files&sa=X&ved=2ahUKEwikx4bF6YeRAxUfTWwGHeDXME0QtKgLegQIFBAB&biw=1536&bih=730&dpr=1.25" 
+driver.get(PHOTOS_WITH_TONGUE)
 
 time.sleep(2)
 
@@ -51,7 +51,7 @@ import requests
 # FOR THAT I WILL USE FOR LOOP.
 
 for I, URL  in enumerate(BIG_IMAGE_URL):
-    FILE_NAME = r"C:\Users\Nagesh Agrawal\OneDrive\Desktop\AI\photos" + f"\img_{I}.jpg"
+    FILE_NAME = r"C:\Users\Nagesh Agrawal\OneDrive\Desktop\AI\photos with tongue" + f"\img_{I}.jpg"
     response = requests.get(URL)
     with open(FILE_NAME,"wb") as file:
         file.write(response.content)
