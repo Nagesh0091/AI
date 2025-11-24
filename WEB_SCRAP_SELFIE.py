@@ -5,19 +5,42 @@ import time
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+from selenium.webdriver.chrome.options import Options
+options = Options()
+options.add_argument("--disable-gcm")       # disables Google Cloud Messaging completely
+options.add_argument("--disable-background-networking")  # optional: disables other background services
+options.add_argument("--log-level=3")       # suppress INFO/ERROR logs in console
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 # SEARCH = PERSON SELFIE .jpg files
 URL = "https://www.google.com/search?sca_esv=c01e032babacf42f&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI766UjmxPoHIHzqoAp3yNuz3Fl-PVh4hb3ucKWH_IX4pHJi8M0lRnPFaqGQh6DpliW2CemDyaYW9_NLOX7W-LTlOq9fcYw&q=PERSON+SELFIE+.jpg+files&sa=X&ved=2ahUKEwjPxJvl1oeRAxW-yzgGHXQIGwwQtKgLegQIFhAB&biw=1536&bih=730&dpr=1.25" 
 driver.get(URL)
 
+
 time.sleep(2)
 
 # FOR ALL THUMBNAILS THE CLASS IS COMMON(YQ4gaf)
+thumbnails = []
+last_count = 0
 
-thumbnails = driver.find_elements("xpath","//img[@class='YQ4gaf']")
-print(len(thumbnails))
+while True:
+    thumbnails = driver.find_elements("xpath", "//img[@class='YQ4gaf']")
+    print(len(thumbnails))
+    time.sleep(1)
+    
+    # only check "See more" if no new thumbnails appeared
+    if len(thumbnails) == last_count:
+        try:
+            driver.find_element(
+                "xpath", "//a[normalize-space()='See more' or normalize-space()='See more anyway']"
+            ).click()
+            time.sleep(2)
+        except Exception:
+            break
+    
+    last_count = len(thumbnails)
+        
 
 # IF WE DIRECTLY DOWNLOAD THE THUMBNAILS, THE QUALITY OF IMAGE IS VERY LOW. IMAGES ARE NOT CLEAR.
 # SO I DECIDED TO DOWNLOAD THE BIG IMAGES BY CLICKING ON THUMBNAILS.
